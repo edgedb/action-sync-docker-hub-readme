@@ -1,0 +1,19 @@
+name: 'Sync Docker Hub Readme'
+description: 'Synchronizes Git repository README with Docker Hub.'
+author: 'EdgeDB Inc.'
+inputs:
+  docker_hub_username:
+    required: true
+    description: Docker Hub username for authentication.
+  docker_hub_password:
+    required: true
+    description: Docker Hub password for authentication.
+  docker_hub_repository:
+    required: true
+    description: The name of the Docker Hub repository to sync README with.
+  readme_path:
+    description: Path to the README file in the repository.
+    default: README.md
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

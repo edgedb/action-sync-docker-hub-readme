@@ -1,0 +1,37 @@
+{
+  "name": "action-sync-docker-hub-readme",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Github action to sync repository README to Docker Hub.",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write **/*.ts",
+    "format-check": "prettier --check **/*.ts",
+    "lint": "eslint src/**/*.ts",
+    "package": "ncc build --source-map --license licenses.txt",
+    "precommit": "npm run build && git add dist/",
+    "all": "npm run build && npm run format && npm run lint && npm run package",
+    "codegen": "graphql-codegen --config codegen.yml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edgedb/action-sync-docker-hub-readme.git"
+  },
+  "author": "EdgeDB Inc.",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.4",
+    "@types/node-fetch": "^2.5.12",
+    "@typescript-eslint/parser": "^4.8.2",
+    "@vercel/ncc": "^0.30.0",
+    "eslint": "^7.14.0",
+    "eslint-plugin-github": "^4.1.1",
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.2"
+  }
+}
